@@ -1,127 +1,97 @@
-# 🎨 Scaffold-ETH x Tailwind
+# 💗 Very Effective Altruism
 
-Scaffold-ETH uses [Ant Design](https://ant.design/) out of the box for it's design system. This is perfect for quick scaffolding and fast frontend experimentation. Scaffold-ETH can also be used with any UI framework, though.
-
-**Scaffold-ETH x Tailwind** uses [Tailwind CSS](https://tailwindcss.com/), a utility-first CSS framework quickly becoming the default choice for new projects. It does not have ready-to-go components like modals and buttons but is packed with classes to make your own design system easily.
-
-**Scaffold-ETH x Tailwind** serves as a starting for using Tailwind with Scaffold-ETH and also doubles as showing what is needed to remove Ant Design from the project. Currently, **Scaffold-ETH x Tailwind** has a reskinned application shell, wallet modal, dev UI, account header, light/dark theme, address input, and ether input. These are enough reskinned components in Tailwind for a user to start building the rest of their app with Tailwind CSS!
-
-🔗 **Live Demo:** https://scaffold-eth-tailwind.surge.sh/
-
-<img width="1792" alt="image" src="https://user-images.githubusercontent.com/12888080/178321228-59d38958-a367-47ec-a571-2e6f58836cd9.png">
-
-<img width="543" alt="image" src="https://user-images.githubusercontent.com/12888080/178321312-84014873-7790-4cf4-a578-5119ccfb8802.png">
-
-<img width="406" alt="image" src="https://user-images.githubusercontent.com/12888080/167281267-1a7cb792-b273-423a-93f7-382d081a4700.png">
-
-<img width="543" alt="image" src="https://user-images.githubusercontent.com/12888080/167281270-84679051-ab48-42ef-9bf4-5e1d6e041932.png">
-
-# 🏗 Scaffold-ETH
-
-> everything you need to build on Ethereum! 🚀
-
-🧪 Quickly experiment with Solidity using a frontend that adapts to your smart contract:
-
-![image](https://user-images.githubusercontent.com/2653167/124158108-c14ca380-da56-11eb-967e-69cde37ca8eb.png)
+<p align="center">
+  <img alt="pitch" src="https://user-images.githubusercontent.com/85101154/195740346-5ea223a4-71c3-48bc-b2c8-703a19da974f.gif" width="80%" />
+</p>
 
 
-# 🏄‍♂️ Quick Start
+Very Effective Altruism is a decentralised application where users can make traceable donations to top charities of their choice. Using social tokens, DAO and NFTs we aim to build a voracious community and give special perks as incentives.
 
-Prerequisites: [Node (v16 LTS)](https://nodejs.org/en/download/) plus [Yarn](https://classic.yarnpkg.com/en/docs/install/) and [Git](https://git-scm.com/downloads)
+## The Problem
 
-> clone/fork 🏗 scaffold-eth:
+Why should you care?
 
-```bash
-git clone https://github.com/stevenpslade/scaffold-eth-tailwind
-```
+<!-- Catch their attention (I don't... work to give), because I'm a... but hang on... how does that work? shrug emoji -->
 
-> install and start your 👷‍ Hardhat chain:
+Effective altruism is set up to focus on giving in a way that, unfortunately, undermines its own effectiveness. This is coupled with issues around charity donation tracebility.
 
-```bash
-cd scaffold-eth-tailwind
-yarn install
-yarn chain
-```
+Additionally, the Centre for Effective Altruism has identified these mistakes:
 
-> in a second terminal window, start your 📱 frontend:
+<!-- This friction needs to be real, sizable and recurring -->
 
-```bash
-cd scaffold-eth-tailwind
-yarn start
-```
+| Problems      | How tokenisation can help |
+| ----------- | ----------- |
+| Running too many projects      | DAO       |
+| Executive turnover and limited board oversight    | DAO        |
+| Causes not representative of the whole community | DAO |
+| Failure to deliver an EA groups platform | DAO |
+| Poor grant administration and record keeping | Blockchain and Smart Contracts |
+| Outdated fund balances | Blockchain |
+| Mixed messages and unclear communication about the Pledge | NFT |
 
-> in a third terminal window, 🛰 deploy your contract:
+## The Solution
 
-```bash
-cd scaffold-eth-tailwind
-yarn deploy
-```
+We reward users who pledge to give a percentage of their income to worthwhile charities with social tokens.
 
-🔏 Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
+We reward our community of Effective Altruists. Giving them incentives to meet their pledge in the form of some NFT.
 
-📝 Edit your frontend `App.jsx` in `packages/react-app/src`
-
-💼 Edit your deployment scripts in `packages/hardhat/deploy`
-
-📱 Open http://localhost:3000 to see the app
-
-# 📚 Documentation
-
-Documentation, tutorials, challenges, and many more resources, visit: [docs.scaffoldeth.io](https://docs.scaffoldeth.io)
-
-# 🔭 Learning Solidity
-
-📕 Read the docs: https://docs.soliditylang.org
-
-📚 Go through each topic from [solidity by example](https://solidity-by-example.org) editing `YourContract.sol` in **🏗 scaffold-eth**
-
-- [Primitive Data Types](https://solidity-by-example.org/primitives/)
-- [Mappings](https://solidity-by-example.org/mapping/)
-- [Structs](https://solidity-by-example.org/structs/)
-- [Modifiers](https://solidity-by-example.org/function-modifier/)
-- [Events](https://solidity-by-example.org/events/)
-- [Inheritance](https://solidity-by-example.org/inheritance/)
-- [Payable](https://solidity-by-example.org/payable/)
-- [Fallback](https://solidity-by-example.org/fallback/)
-
-📧 Learn the [Solidity globals and units](https://docs.soliditylang.org/en/latest/units-and-global-variables.html)
-
-# 🛠 Buidl
-
-Check out all the [active branches](https://github.com/scaffold-eth/scaffold-eth/branches/active), [open issues](https://github.com/scaffold-eth/scaffold-eth/issues), and join/fund the 🏰 [BuidlGuidl](https://BuidlGuidl.com)!
+By virtue of owning one of these NFTs you will be granted partner benefits such as discounted stadium tickets, access to podcasts.
 
 
- - 🚤  [Follow the full Ethereum Speed Run](https://medium.com/@austin_48503/%EF%B8%8Fethereum-dev-speed-run-bd72bcba6a4c)
-
-
- - 🎟  [Create your first NFT](https://github.com/scaffold-eth/scaffold-eth/tree/simple-nft-example)
- - 🥩  [Build a staking smart contract](https://github.com/scaffold-eth/scaffold-eth/tree/challenge-1-decentralized-staking)
- - 🏵  [Deploy a token and vendor](https://github.com/scaffold-eth/scaffold-eth/tree/challenge-2-token-vendor)
- - 🎫  [Extend the NFT example to make a "buyer mints" marketplace](https://github.com/scaffold-eth/scaffold-eth/tree/buyer-mints-nft)
- - 🎲  [Learn about commit/reveal](https://github.com/scaffold-eth/scaffold-eth/tree/commit-reveal-with-frontend)
- - ✍️  [Learn how ecrecover works](https://github.com/scaffold-eth/scaffold-eth/tree/signature-recover)
- - 👩‍👩‍👧‍👧  [Build a multi-sig that uses off-chain signatures](https://github.com/scaffold-eth/scaffold-eth/tree/meta-multi-sig)
- - ⏳  [Extend the multi-sig to stream ETH](https://github.com/scaffold-eth/scaffold-eth/tree/streaming-meta-multi-sig)
- - ⚖️  [Learn how a simple DEX works](https://medium.com/@austin_48503/%EF%B8%8F-minimum-viable-exchange-d84f30bd0c90)
- - 🦍  [Ape into learning!](https://github.com/scaffold-eth/scaffold-eth/tree/aave-ape)
-
-# 💌 P.S.
-
-🌍 You need an RPC key for testnets and production deployments, create an [Alchemy](https://www.alchemy.com/) account and replace the value of `ALCHEMY_KEY = xxx` in `packages/react-app/src/constants.js` with your new key.
-
-📣 Make sure you update the `InfuraID` before you go to production. Huge thanks to [Infura](https://infura.io/) for our special account that fields 7m req/day!
-
-# 🏃💨 Speedrun Ethereum
-Register as a builder [here](https://speedrunethereum.com) and start on some of the challenges and build a portfolio.
-
-# 💬 Support Chat
-
-Join the telegram [support chat 💬](https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA) to ask questions and find others building with 🏗 scaffold-eth!
+## NFTs are not just for monkeys!
 
 ---
 
-🙏 Please check out our [Gitcoin grant](https://gitcoin.co/grants/2851/scaffold-eth) too!
+<img src="https://user-images.githubusercontent.com/85101154/195741557-f4dcd5d8-ed0d-476e-9704-c85d0468a747.png" alt="drawing" width="300"/>
 
-### Automated with Gitpod
+Sold for 1000 Eth (2 million dollars today)
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#github.com/scaffold-eth/scaffold-eth)
+---
+
+In 2021, Twitter allowed their users to show off their verified NFT
+
+<img src="https://user-images.githubusercontent.com/85101154/195741633-904c239d-bead-4497-a262-887466dee494.png" alt="drawing" width="300"/>
+
+#### We're incentivising the wrong behaviour
+
+---
+
+Imagine a world where instead of rewarding conspicuous consumption, we reward the people who do the most good in society?
+
+
+## How does it work?
+
+<!-- Rich Picture, edit twitter verification image -->
+
+1. Users make a pledge to donate % of their income annually. In return they get a Level 1 NFT
+1. They interact with a smart contract when they donate, if they meet the requirements they get a Level 2 NFT (depending on how much they donate).
+1. Their NFT will expire (not be owned by them) after a year so they need to donate again.
+1. These NFTs act as a social token (or a badge that they own).
+1. Partnering with other companies we will get the users unique perks.
+1. A Dao is also available for NFT owners to vote for the top 10 charity list.
+
+## Initial Product Roadmap
+
+1. NFT / Smart Contracts
+2. DAO
+
+## Innovation 
+
+How unique is the concept of the solution? This could be a new take on an existing solution or a completely unique solution.
+
+## Impact 
+
+How will this solution help impact lives?
+
+## Commercial Viability 
+
+How commercial?
+
+## Alignment with challenge themes 
+
+## Presentation 
+
+## Technically Feasilibity
+
+## Project Status
+This project is in active development.

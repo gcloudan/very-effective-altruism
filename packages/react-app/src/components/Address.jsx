@@ -1,25 +1,24 @@
-import React, { useState } from "react";
+import { Skeleton, Typography } from "antd";
+import React from "react";
+import { useThemeSwitcher } from "react-css-theme-switcher";
 import Blockies from "react-blockies";
 import { useLookupAddress } from "eth-hooks/dapps/ens";
-import { DocumentDuplicateIcon, CheckCircleIcon } from '@heroicons/react/outline';
-import { blockExplorerLink } from "../helpers";
+
+// changed value={address} to address={address}
+
+const { Text } = Typography;
 
 /** 
   ~ What it does? ~
-
   Displays an address with a blockie image and option to copy address
-
   ~ How can I use? ~
-
   <Address
     address={address}
     ensProvider={mainnetProvider}
     blockExplorer={blockExplorer}
     fontSize={fontSize}
   />
-
   ~ Features ~
-
   - Provide ensProvider={mainnetProvider} and your address will be replaced by ENS name
               (ex. "0xa870" => "user.eth")
   - Provide blockExplorer={blockExplorer}, click on address and get the link
@@ -27,24 +26,16 @@ import { blockExplorerLink } from "../helpers";
   - Provide fontSize={fontSize} to change the size of address text
 **/
 
+const blockExplorerLink = (address, blockExplorer) => `${blockExplorer || "https://etherscan.io/"}address/${address}`;
+
 export default function Address(props) {
+  const { currentTheme } = useThemeSwitcher();
   const address = props.value || props.address;
   const ens = useLookupAddress(props.ensProvider, address);
   const ensSplit = ens && ens.split(".");
   const validEnsCheck = ensSplit && ensSplit[ensSplit.length - 1] === "eth";
   const etherscanLink = blockExplorerLink(address, props.blockExplorer);
   let displayAddress = address?.substr(0, 5) + "..." + address?.substr(-4);
-
-  const [addressCopied, setAddressCopied] = useState(false);
-
-  const copyAddress = (e) => {
-    e.stopPropagation();
-    navigator.clipboard.writeText(address);
-    setAddressCopied(true);
-    setTimeout(() => {
-      setAddressCopied(false);
-    }, 800);
-  }
 
   if (validEnsCheck) {
     displayAddress = ens;
@@ -54,65 +45,57 @@ export default function Address(props) {
     displayAddress = address;
   }
 
-  // Skeleton UI
   if (!address) {
     return (
-      <div class="animate-pulse flex space-x-4">
-        <div class="rounded-md bg-slate-300 h-6 w-6"></div>
-        <div class="flex items-center space-y-6">
-          <div class="h-2 w-28 bg-slate-300 rounded"></div>
-        </div>
-      </div>
+      <span>
+        <Skeleton avatar paragraph={{ rows: 1 }} />
+      </span>
     );
   }
 
   if (props.minimized) {
     return (
+      <span style={{ verticalAlign: "middle" }}>
         <a
+          style={{color: "rgb(221, 221, 221)"}}
           target="_blank"
           href={etherscanLink}
           rel="noopener noreferrer"
         >
-          <Blockies
-            className="inline rounded-md"
-            size={8}
-            scale={2}
-            seed={address.toLowerCase()}
-          />
+          <Blockies seed={address.toLowerCase()} size={props.blockieSize ? props.blockieSize : 8} scale={2} />
         </a>
+      </span>
     );
   }
 
   return (
-    <div className="flex items-center">
-      <div className="flex-shrink-0">
-        <Blockies
-          className="mx-auto rounded-md"
-          size={5}
-          seed={address.toLowerCase()}
-          scale={props.fontSize ? props.fontSize / 7 : 4}
-        />
-      </div>
-      {props.disableAddressLink
-        ?
-          <span className="ml-1.5 text-lg font-normal text-gray-900 dark:text-white">
-            {displayAddress}
-          </span>
-        :
-          <a className="ml-1.5 text-lg font-normal text-gray-900 dark:text-white" target="_blank" href={etherscanLink} rel="noopener noreferrer">
-            {displayAddress}
-          </a>
-      }
-      {addressCopied
-        ?
-          <CheckCircleIcon className="ml-1.5 text-xl font-normal text-sky-600 h-5 w-5 cursor-pointer" aria-hidden="true" />
-        :
-          <DocumentDuplicateIcon
-            className="ml-1.5 text-xl font-normal text-sky-600 h-5 w-5 cursor-pointer"
-            aria-hidden="true"
-            onClick={copyAddress}
-          />
-      }
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <Blockies seed={address.toLowerCase()} size={props.blockieSize ? props.blockieSize : 8} scale={props.fontSize ? props.fontSize / 7 : 4} />
+      <span style={{paddingLeft: 5, fontSize: props.fontSize ? props.fontSize : 28 }}>
+        {props.onChange ? (
+          <Text editable={{ onChange: props.onChange }} copyable={{ text: address }}>
+            <a
+              style={{color: "rgb(221, 221, 221)"}}
+              target="_blank"
+              href={etherscanLink}
+              rel="noopener noreferrer"
+            >
+              {displayAddress}
+            </a>
+          </Text>
+        ) : (
+          <Text copyable={{ text: address }}>
+            <a
+              style={{color: "rgb(221, 221, 221)"}}
+              target="_blank"
+              href={etherscanLink}
+              rel="noopener noreferrer"
+            >
+              {displayAddress}
+            </a>
+          </Text>
+        )}
+      </span>
     </div>
   );
 }

@@ -63,7 +63,7 @@ function Subgraph(props) {
     },
   ];
 
-  const [newPurpose, setNewPurpose] = useState("loading...");
+  const [newPurpose, setNewPurpose] = useState('loading...');
 
   const deployWarning = (
     <div style={{ marginTop: 8, padding: 8 }}>Warning: 🤔 Have you deployed your subgraph yet?</div>
@@ -170,7 +170,7 @@ function Subgraph(props) {
           />
           <Button
             onClick={() => {
-              console.log("newPurpose", newPurpose);
+              console.log('newPurpose', newPurpose);
               /* look how you call setPurpose on your contract: */
               props.tx(props.writeContracts.YourContract.setPurpose(newPurpose));
             }}
@@ -182,7 +182,7 @@ function Subgraph(props) {
         {data ? (
           <Table dataSource={data.purposes} columns={purposeColumns} rowKey="id" />
         ) : (
-          <Typography>{loading ? "Loading..." : deployWarning}</Typography>
+          <Typography>{loading ? 'Loading...' : deployWarning}</Typography>
         )}
 
         <div style={{ margin: 32, height: 400, border: "1px solid #888888", textAlign: "left" }}>

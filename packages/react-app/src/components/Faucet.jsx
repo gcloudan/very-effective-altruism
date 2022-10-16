@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Blockies from "react-blockies";
 import { Transactor } from "../helpers";
-import WalletModal from "./WalletModal";
 
 import {
   PaperAirplaneIcon,
@@ -98,14 +97,7 @@ export default function Faucet(props) {
       >
         <ArrowsExpandIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
       </button>
-      <WalletModal
-        provider={localProvider}
-        ensProvider={ensProvider}
-        price={price}
-        address={faucetAddress}
-        open={walletOpen}
-        setOpen={setWalletOpen}
-      />
+
     </div>
   );
 }

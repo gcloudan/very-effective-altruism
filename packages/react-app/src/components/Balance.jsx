@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useBalance } from "eth-hooks";
-import { classNames } from "../helpers";
 
 const { utils } = require("ethers");
 
-/** 
+/*
   ~ What it does? ~
 
   Displays a balance of given address in ether & dollar
@@ -28,17 +27,25 @@ const { utils } = require("ethers");
   - Provide address={address} and get balance corresponding to given address
   - Provide provider={mainnetProvider} to access balance on mainnet or any other network (ex. localProvider)
   - Provide price={price} of ether and get your balance converted to dollars
-**/
+*/
 
 export default function Balance(props) {
   const [dollarMode, setDollarMode] = useState(true);
 
+  // const [listening, setListening] = useState(false);
+
   const balance = useBalance(props.provider, props.address);
+
   let floatBalance = parseFloat("0.00");
+
   let usingBalance = balance;
 
-  if (typeof props.balance !== "undefined") usingBalance = props.balance;
-  if (typeof props.value !== "undefined") usingBalance = props.value;
+  if (typeof props.balance !== "undefined") {
+    usingBalance = props.balance;
+  }
+  if (typeof props.value !== "undefined") {
+    usingBalance = props.value;
+  }
 
   if (usingBalance) {
     const etherBalance = utils.formatEther(usingBalance);
@@ -46,20 +53,23 @@ export default function Balance(props) {
     floatBalance = parseFloat(etherBalance);
   }
 
-  let displayBalance = "Ξ" + floatBalance.toFixed(4);
+  let displayBalance = floatBalance.toFixed(4);
 
-  const price = props.price || props.dollarMultiplier || 1;
+  const price = props.price || props.dollarMultiplier;
 
-  if (dollarMode) {
+  if (price && dollarMode) {
     displayBalance = "$" + (floatBalance * price).toFixed(2);
   }
 
   return (
     <span
-      className={classNames(
-        props.textSize ? props.textSize : 'text-2xl',
-        'cursor-pointer px-2 align-middle'
-      )}
+      style={{
+        color: 'rgb(221, 221, 221)',
+        verticalAlign: "middle",
+        fontSize: props.size ? props.size : 24,
+        padding: 8,
+        cursor: "pointer",
+      }}
       onClick={() => {
         setDollarMode(!dollarMode);
       }}
